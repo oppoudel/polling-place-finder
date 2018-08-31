@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.esri-view-surface {
+  outline: none;
+}
+
+.esri-widget {
+  border-radius: 5px;
+  outline: none;
+}
+
+.esri-zoom .esri-widget--button:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.esri-zoom .esri-widget--button:last-child {
+  border-radius: 0 0 5px 5px;
+}

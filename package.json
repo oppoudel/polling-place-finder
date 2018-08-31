@@ -1,0 +1,37 @@
+{
+  "name": "polling-place-finder",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@esri/arcgis-rest-feature-service": "^1.8.0",
+    "@esri/arcgis-rest-geocoder": "^1.8.0",
+    "@esri/arcgis-rest-request": "^1.8.0",
+    "@turf/boolean-contains": "^6.0.1",
+    "@turf/boolean-within": "^6.0.1",
+    "@turf/helpers": "^6.1.4",
+    "date-fns": "^1.29.0",
+    "downshift": "^2.1.5",
+    "emotion": "^9.2.6",
+    "esri-loader": "^2.4.0",
+    "lodash.debounce": "^4.0.8",
+    "lodash.isempty": "^4.4.0",
+    "match-sorter": "^2.2.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-emotion": "^9.2.6",
+    "react-fast-compare": "^2.0.2",
+    "react-scripts": "1.1.4",
+    "semantic-ui-css": "^2.3.3",
+    "semantic-ui-react": "^0.82.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@esri/arcgis-rest-common-types": "^1.8.0"
+  },
+  "homepage": "https://gis.baltimorecity.gov/pollingplacefinder"
+}
