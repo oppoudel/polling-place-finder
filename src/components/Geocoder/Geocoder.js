@@ -52,7 +52,13 @@ export default class Search extends Component {
           getMenuProps
         }) => (
           <div {...css({ width: '100%' })}>
-            <Label {...getLabelProps()}>Search Address</Label>
+            <Label
+              {...getLabelProps()}
+              {...css({ fontFamily: 'open-sans, Lato' })}
+            >
+              To find a Polling Place Location, enter your address below or
+              click on the map.
+            </Label>
             <div {...css({ position: 'relative' })}>
               <Input
                 {...getInputProps({

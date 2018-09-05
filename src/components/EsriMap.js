@@ -66,7 +66,7 @@ export default class EsriMap extends Component {
             graphics: [pointGraphic]
           });
           webmap.add(layer);
-          view.goTo([x, y]);
+          view.goTo({ center: [x, y], zoom: 17 });
         }
       })
       .catch(err => {
@@ -78,23 +78,25 @@ export default class EsriMap extends Component {
       center: { x, y },
       updateXY
     } = this.props;
-    loadModules(['esri/views/MapView', 'esri/Map']).then(
-      ([MapView, Map, Graphic, GraphicsLayer], options) => {
+    loadModules(['esri/views/MapView', 'esri/Map'])
+      .then(([MapView, Map, Graphic, GraphicsLayer], options) => {
         webmap = new Map({
           basemap: 'topo-vector'
         });
         view = new MapView({
           map: webmap,
           container: this.viewdivRef.current,
-          zoom: 17,
+          zoom: 12,
           center: [x, y]
         });
-        view.when(() => this.addPoint());
+        //view.when(() => this.addPoint());
         view.on('click', e =>
           updateXY(e.mapPoint.longitude, e.mapPoint.latitude)
         );
-      }
-    );
+      })
+      .catch(err => {
+        this.setState({ error: true });
+      });
   }
 
   render() {

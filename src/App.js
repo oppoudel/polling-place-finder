@@ -6,7 +6,7 @@ import { requestOptions } from './config';
 import Geocoder from './components/Geocoder/Geocoder';
 import LocationTracker from './components/LocationTracker';
 import EsriMap from './components/EsriMap';
-import LocationDetailsClient from './components/LocationDetails_Client';
+import LocationDetails from './components/LocationDetails/LocationDetails';
 
 class App extends Component {
   state = {
@@ -14,6 +14,7 @@ class App extends Component {
       x: -76.6,
       y: 39.3
     },
+    updated: false,
     features: []
   };
   componentDidMount = async () => {
@@ -21,17 +22,21 @@ class App extends Component {
     this.setState({ features: data.features });
   };
   onXYupdate = (x, y) => {
-    this.setState({ mapCenter: { x, y } });
+    this.setState({ mapCenter: { x, y }, updated: true });
   };
   render() {
-    const { mapCenter, features } = this.state;
+    const { mapCenter, features, updated } = this.state;
     return (
       <div>
         <LocationTracker updateXY={this.onXYupdate} />
         <Container>
           <Geocoder updateXY={this.onXYupdate} />
           <EsriMap center={mapCenter} updateXY={this.onXYupdate} />
-          <LocationDetailsClient center={mapCenter} features={features} />
+          <LocationDetails
+            center={mapCenter}
+            features={features}
+            updated={updated}
+          />
         </Container>
       </div>
     );
